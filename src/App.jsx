@@ -9,7 +9,6 @@ import Spinner from "./Spinner.jsx";
 import "./styles/index.css";
 
 function App() {
-  const [spinnerOn, setSpinnerOn] = useState(false);
   return (
     <>
       <Spinner on={spinnerOn} />

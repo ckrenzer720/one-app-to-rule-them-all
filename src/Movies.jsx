@@ -1,6 +1,7 @@
 // src/components/MoviesComponent.js
 import React, { useState, useEffect } from "react";
 import { apiClient } from "./FetchAPI/API";
+import Spinner from "./Spinner";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -8,18 +9,26 @@ const Movies = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
+      setLoading(true);
       try {
         const response = await apiClient.get("/movie");
         setMovies(response.data.docs);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching movies:", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchMovies();
   }, []);
 
-  if (loading) return <div>Loading movies...</div>;
+  if (loading)
+    return (
+      <div>
+        <Spinner on={loading} />
+      </div>
+    );
 
   return (
     <div>
