@@ -1,5 +1,6 @@
 // src/components/BooksComponent.js
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { apiClient } from "./FetchAPI/API";
 import Spinner from "./Spinner";
 
@@ -41,6 +42,10 @@ const Books = () => {
   };
 
   if (loading) return <Spinner on={loading} />;
+  if (!localStorage.getItem("token")) {
+    alert("You must login to view the library...");
+    return <Navigate to="/" />;
+  }
 
   return (
     <div>

@@ -18,6 +18,10 @@ Here’s what my app can do:
 
 I’m using **The One API**, which provides awesome data from the _The Lord of the Rings_ universe. Below are the routes my app connects to:
 
+- ** TO LOGIN PLEASE USE ONE OF THE TWO FOLLOWING `USERNAME/PASSWORD` COMBINATIONS **
+  - payload: `{ "username": "gandalf", "password": "mellon" }`
+  - payload: `{ "username": "frodo", "password": "bagginses" }`
+
 ### API Endpoints
 
 All routes start with:  

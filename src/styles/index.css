@@ -74,3 +74,9 @@ nav, a{
   justify-content: center;
   color: goldenrod;
 }
+
+#loginForm { 
+  width: "400px";
+  margin: "auto";
+  padding: "20px" 
+}
