@@ -35,11 +35,11 @@ header {
   font-size: 35px;
   letter-spacing: -1.5px;
   text-shadow: 3px 3px 3px #002823, -1px 0 3px #002823;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   text-transform: uppercase;
   font-weight: normal;
 }
- 
+
 header > span {
   display: inline-block;
   font-size: 32px;
@@ -49,7 +49,7 @@ header > span {
 header {
   letter-spacing: 5px;
   font-family: Arial;
-  color: #F6FFA8;
+  color: #f6ffa8;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -60,7 +60,8 @@ header {
   text-align: center;
 }
 
-nav, a{
+nav,
+a {
   padding: 0.5rem;
   margin-right: 10px;
 }
@@ -75,8 +76,123 @@ nav, a{
   color: goldenrod;
 }
 
-#loginForm { 
+#loginForm {
   width: "400px";
   margin: "auto";
-  padding: "20px" 
+  padding: "20px";
+}
+
+.characters-container {
+  width: inherit;
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
+}
+
+/* Default arrow styles */
+.slick-prev,
+.slick-next {
+  z-index: 10; /* Ensure arrows are above other elements */
+  width: 40px; /* Adjust arrow size */
+  height: 40px;
+  border-radius: 50%; /* Make arrows circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for centering */
+}
+
+/* Position arrows inside the carousel container */
+.slick-prev {
+  left: 10px; /* Position inside the container */
+}
+
+.slick-next {
+  right: 10px; /* Position inside the container */
+}
+
+/* Optional: Style the arrow icons */
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px; /* Adjust arrow icon size */
+  color: white; /* Change arrow icon color */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .slick-prev,
+  .slick-next {
+    width: 30px; /* Reduce arrow size for smaller screens */
+    height: 30px;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 16px; /* Reduce arrow icon size */
+  }
+
+  .slick-prev {
+    left: 5px; /* Adjust position for smaller screens */
+  }
+
+  .slick-next {
+    right: 5px; /* Adjust position for smaller screens */
+  }
+}
+
+.character-card {
+  text-align: center;
+  padding: 5px;
+  background-color: #414040;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+.character-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.character-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.character-group {
+  margin-bottom: 40px;
+}
+
+.character-group h3 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #f6ffa8;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column; /* Stack the filters vertically */
+  position: absolute; /* Position the filter container */
+  right: 20px; /* Distance from the right edge */
+  top: 100px; /* Distance from the top edge */
+  gap: 10px; /* Add spacing between filter elements */
+  background-color: #242424; /* Optional: Background color for the filter box */
+  padding: 15px; /* Optional: Add padding around the filters */
+  border-radius: 8px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+.filter-container input,
+.filter-container select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #242424;
+  color: #f6ffa8;
+}
+
+.filter-container input::placeholder {
+  color: #aaa;
 }
