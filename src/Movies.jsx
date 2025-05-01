@@ -26,7 +26,7 @@ const Movies = () => {
 
   if (loading) return <Spinner on={loading} />;
   if (!localStorage.getItem("token")) {
-    alert("You must login to view the library...");
+    alert("You need to login to view the movies...");
     return <Navigate to="/" />;
   }
 

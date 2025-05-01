@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { UNSAFE_NavigationContext, useNavigate } from "react-router-dom";
-import PT from "prop-types";
+import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const mockAPI = {
-    // Hardcoded users cause I could'nt figure out how to not
     users: [
       { username: "gandalf", password: "mellon" },
       { username: "frodo", password: "bagginses" },
@@ -18,31 +15,24 @@ const Login = (props) => {
       const user = mockAPI.users.find(
         (u) => u.username === username && u.password === password
       );
-      console.log("Attempting login with:", username, password);
       if (!user) {
-        console.error("Invalid credentials for username:", username);
         alert("I have no memory of those credentials...");
+        return null;
       }
-      return { token: "mock-token" }; // Simulated token
+      return { token: "mock-token" };
     },
   };
 
-  const handleSubmit = async (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
-    try {
-      const payload = mockAPI.login({
-        username: username.trim(),
-        password: password.trim(),
-      });
-      if (!payload) {
-        navigate("/");
-      } else if (payload) {
-        localStorage.setItem("token", payload.token); // Save token
-        navigate("/books"); // Redirect to books page
-      }
-    } catch (error) {
-      alert(error.message);
-    } // Show error message
+    const payload = mockAPI.login({
+      username: username.trim(),
+      password: password.trim(),
+    });
+    if (payload) {
+      localStorage.setItem("token", payload.token);
+      navigate("/books");
+    }
   };
 
   const isDisabled = () => {
@@ -50,20 +40,20 @@ const Login = (props) => {
   };
 
   return (
-    <>
+    <div className="login-container">
       <h2>Login</h2>
       <form id="loginForm" onSubmit={handleSubmit}>
-        <div>
-          <label>Username: </label>
+        <div className="form-group">
+          <label>Username:</label>
           <input
             type="text"
             value={username}
-            placeholder="Thy name goes here"
+            placeholder="What is your name?"
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div>
-          <label>Password: </label>
+        <div className="form-group">
+          <label>Password:</label>
           <input
             type="password"
             value={password}
@@ -71,11 +61,12 @@ const Login = (props) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button disabled={isDisabled()} type="submit">
+        <button disabled={isDisabled()} type="submit" className="login-button">
           Login
         </button>
       </form>
-    </>
+    </div>
   );
 };
+
 export default Login;

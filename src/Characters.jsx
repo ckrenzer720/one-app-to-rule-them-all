@@ -28,7 +28,7 @@ const Characters = () => {
 
   if (loading) return <Spinner on={loading} />;
   if (!localStorage.getItem("token")) {
-    alert("You must login to view the library...");
+    alert("You need to login to view the characters...");
     return <Navigate to="/" />;
   }
 

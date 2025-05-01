@@ -60,6 +60,14 @@ header {
   text-align: center;
 }
 
+#logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  border-radius: 15%;
+}
+
 nav,
 a {
   padding: 0.5rem;
@@ -195,4 +203,65 @@ a {
 
 .filter-container input::placeholder {
   color: #aaa;
+}
+
+/* Login container styling */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #242424; /* Dark background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  color: #f6ffa8; /* Golden text color */
+  text-align: center;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #f6ffa8;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #414040; /* Darker input background */
+  color: #f6ffa8; /* Golden text color */
+}
+
+.form-group input::placeholder {
+  color: #aaa; /* Placeholder text color */
+}
+
+/* Login button styling */
+.login-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: goldenrod;
+  color: #242424;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:disabled {
+  background-color: #555; /* Disabled button color */
+  cursor: not-allowed;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #f6ffa8; /* Lighter hover color */
 }
